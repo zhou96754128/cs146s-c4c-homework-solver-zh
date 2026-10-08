@@ -1,0 +1,293 @@
+[
+  {
+    "id": "P01",
+    "source_line": 8,
+    "title": "1. 求解下列线性方程组",
+    "body": "求解下列三元线性方程组：\n\n\\begin{cases}\n3x + 2y - z = 4 \\\\\nx - y + 2z = 5 \\\\\n2x + 3y + z = 11\n\\end{cases}\n\n要求给出唯一解，并说明消元路径。",
+    "raw": "1. 求解下列线性方程组\n求解下列三元线性方程组：\n\n\\begin{cases}\n3x + 2y - z = 4 \\\\\nx - y + 2z = 5 \\\\\n2x + 3y + z = 11\n\\end{cases}\n\n要求给出唯一解，并说明消元路径。",
+    "sha256": "f3d0d02a2454f2e5",
+    "domain": "linear_algebra",
+    "route": {
+      "method": "rule",
+      "score": 3.0,
+      "runner_up": "physics",
+      "margin": 1.0,
+      "hits": [
+        "strong:线性方程组",
+        "kw:cases"
+      ],
+      "needs_llm": false
+    }
+  },
+  {
+    "id": "P02",
+    "source_line": 20,
+    "title": "2. 求矩阵的特征值与特征向量",
+    "body": "求矩阵 $A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}$ 的特征值与对应的特征向量。",
+    "raw": "2. 求矩阵的特征值与特征向量\n求矩阵 $A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}$ 的特征值与对应的特征向量。",
+    "sha256": "6af8aa2b64415faa",
+    "domain": "linear_algebra",
+    "route": {
+      "method": "rule",
+      "score": 7.0,
+      "runner_up": "physics",
+      "margin": 1.214,
+      "hits": [
+        "strong:特征值",
+        "strong:特征向量",
+        "kw:矩阵",
+        "kw:向量",
+        "kw:pmatrix"
+      ],
+      "needs_llm": false
+    }
+  },
+  {
+    "id": "P03",
+    "source_line": 24,
+    "title": "3. 求矩阵的秩",
+    "body": "求矩阵 $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 3 & 6 & 10 \\end{pmatrix}$ 的秩，并说明行向量组是否线性相关。",
+    "raw": "3. 求矩阵的秩\n求矩阵 $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 3 & 6 & 10 \\end{pmatrix}$ 的秩，并说明行向量组是否线性相关。",
+    "sha256": "7962a998f69834f3",
+    "domain": "linear_algebra",
+    "route": {
+      "method": "rule",
+      "score": 6.0,
+      "runner_up": "physics",
+      "margin": 1.0,
+      "hits": [
+        "strong:矩阵的秩",
+        "kw:矩阵",
+        "kw:向量",
+        "kw:秩",
+        "kw:pmatrix"
+      ],
+      "needs_llm": false
+    }
+  },
+  {
+    "id": "P04",
+    "source_line": 28,
+    "title": "4. 计算行列式的值",
+    "body": "计算下列三阶行列式的值：$\\begin{vmatrix} 2 & 1 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 10 \\end{vmatrix}$。",
+    "raw": "4. 计算行列式的值\n计算下列三阶行列式的值：$\\begin{vmatrix} 2 & 1 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 10 \\end{vmatrix}$。",
+    "sha256": "c8e824f83b00cfa9",
+    "domain": "linear_algebra",
+    "route": {
+      "method": "rule",
+      "score": 3.0,
+      "runner_up": "physics",
+      "margin": 1.5,
+      "hits": [
+        "strong:行列式",
+        "kw:vmatrix"
+      ],
+      "needs_llm": false
+    }
+  },
+  {
+    "id": "P05",
+    "source_line": 32,
+    "title": "5. 向量的点积与叉积",
+    "body": "已知向量 $\\vec{a}=(2,-1,3)$ 与 $\\vec{b}=(1,4,-2)$，求二者的点积与叉积，并判断这两个向量是否垂直。",
+    "raw": "5. 向量的点积与叉积\n已知向量 $\\vec{a}=(2,-1,3)$ 与 $\\vec{b}=(1,4,-2)$，求二者的点积与叉积，并判断这两个向量是否垂直。",
+    "sha256": "864b6758a89ad695",
+    "domain": "linear_algebra",
+    "route": {
+      "method": "rule",
+      "score": 4.0,
+      "runner_up": "physics",
+      "margin": 1.0,
+      "hits": [
+        "kw:向量",
+        "kw:点积",
+        "kw:叉积",
+        "kw:垂直"
+      ],
+      "needs_llm": false
+    }
+  },
+  {
+    "id": "P06",
+    "source_line": 36,
+    "title": "6. 求一阶微分方程的通解",
+    "body": "求微分方程 $y' - 2y = 0$ 的通解。",
+    "raw": "6. 求一阶微分方程的通解\n求微分方程 $y' - 2y = 0$ 的通解。",
+    "sha256": "db5e20a0d1fd3165",
+    "domain": "ode",
+    "route": {
+      "method": "rule",
+      "score": 5.0,
+      "runner_up": "physics",
+      "margin": 1.3,
+      "hits": [
+        "strong:微分方程",
+        "kw:通解",
+        "kw:微分",
+        "kw:y'"
+      ],
+      "needs_llm": false
+    }
+  },
+  {
+    "id": "P07",
+    "source_line": 40,
+    "title": "7. 求二阶微分方程满足初值条件的特解",
+    "body": "求微分方程 $y'' - 5y' + 6y = 0,\\; y(0)=0,\\; y'(0)=1$ 的特解。",
+    "raw": "7. 求二阶微分方程满足初值条件的特解\n求微分方程 $y'' - 5y' + 6y = 0,\\; y(0)=0,\\; y'(0)=1$ 的特解。",
+    "sha256": "4490583342172ede",
+    "domain": "ode",
+    "route": {
+      "method": "rule",
+      "score": 7.0,
+      "runner_up": "physics",
+      "margin": 1.214,
+      "hits": [
+        "strong:微分方程",
+        "strong:初值",
+        "kw:特解",
+        "kw:微分",
+        "kw:y'"
+      ],
+      "needs_llm": false
+    }
+  },
+  {
+    "id": "P08",
+    "source_line": 44,
+    "title": "8. 匀变速直线运动",
+    "body": "一辆小车以初速度 v_0 = 10 m/s 出发，沿直线以加速度 a = 2 m/s^2 匀加速运动，\n运动时间 t = 5 s，求末速度与这段时间内的位移。",
+    "raw": "8. 匀变速直线运动\n一辆小车以初速度 v_0 = 10 m/s 出发，沿直线以加速度 a = 2 m/s^2 匀加速运动，\n运动时间 t = 5 s，求末速度与这段时间内的位移。",
+    "sha256": "f4cd9e2ad01e39f5",
+    "domain": "physics",
+    "route": {
+      "method": "rule",
+      "score": 3.0,
+      "runner_up": "ode",
+      "margin": 1.0,
+      "hits": [
+        "kw:加速度",
+        "kw:初速度",
+        "kw:m/s"
+      ],
+      "needs_llm": false
+    }
+  },
+  {
+    "id": "P09",
+    "source_line": 49,
+    "title": "9. 牛顿第二定律",
+    "body": "质量 m = 5 kg 的物体受到合外力 F = 20 N 的作用，求物体获得的加速度。",
+    "raw": "9. 牛顿第二定律\n质量 m = 5 kg 的物体受到合外力 F = 20 N 的作用，求物体获得的加速度。",
+    "sha256": "7ce54e98171badb7",
+    "domain": "physics",
+    "route": {
+      "method": "rule",
+      "score": 8.0,
+      "runner_up": "ode",
+      "margin": 1.0,
+      "hits": [
+        "strong:合外力",
+        "strong:牛顿第二定律",
+        "kw:加速度",
+        "kw:质量",
+        "kw:物体",
+        "kw:牛顿"
+      ],
+      "needs_llm": false
+    }
+  },
+  {
+    "id": "P10",
+    "source_line": 53,
+    "title": "10. 动能定理",
+    "body": "质量 m = 3 kg 的物体从高 h = 10 m 处由静止落下，取 g = 9.8 m/s^2，\n求物体落地时的动能，并用落地速度独立换算一次以作核对。",
+    "raw": "10. 动能定理\n质量 m = 3 kg 的物体从高 h = 10 m 处由静止落下，取 g = 9.8 m/s^2，\n求物体落地时的动能，并用落地速度独立换算一次以作核对。",
+    "sha256": "550f84653a19a2c5",
+    "domain": "physics",
+    "route": {
+      "method": "rule",
+      "score": 8.0,
+      "runner_up": "ode",
+      "margin": 1.0,
+      "hits": [
+        "strong:落地速度",
+        "strong:动能定理",
+        "kw:质量",
+        "kw:物体",
+        "kw:动能",
+        "kw:m/s"
+      ],
+      "needs_llm": false
+    }
+  },
+  {
+    "id": "P11",
+    "source_line": 58,
+    "title": "11. 抛体运动",
+    "body": "以初速度 v_0 = 25 m/s 斜向上抛出一小球，抛射角 \\theta = 37^\\circ，\n取 g = 9.8 m/s^2，求射程与最大高度。",
+    "raw": "11. 抛体运动\n以初速度 v_0 = 25 m/s 斜向上抛出一小球，抛射角 \\theta = 37^\\circ，\n取 g = 9.8 m/s^2，求射程与最大高度。",
+    "sha256": "e7ece13e41cd6a0b",
+    "domain": "physics",
+    "route": {
+      "method": "rule",
+      "score": 9.0,
+      "runner_up": "ode",
+      "margin": 1.0,
+      "hits": [
+        "strong:抛体",
+        "strong:抛射角",
+        "strong:射程",
+        "kw:初速度",
+        "kw:高度",
+        "kw:m/s"
+      ],
+      "needs_llm": false
+    }
+  },
+  {
+    "id": "P12",
+    "source_line": 63,
+    "title": "12. 简谐运动的周期",
+    "body": "弹簧振子的劲度系数 k = 100 N/m，振子质量 m = 0.25 kg，求该振子的振动周期。",
+    "raw": "12. 简谐运动的周期\n弹簧振子的劲度系数 k = 100 N/m，振子质量 m = 0.25 kg，求该振子的振动周期。",
+    "sha256": "17bb3058ac9ec570",
+    "domain": "physics",
+    "route": {
+      "method": "rule",
+      "score": 11.0,
+      "runner_up": "ode",
+      "margin": 1.136,
+      "hits": [
+        "strong:简谐",
+        "strong:弹簧振子",
+        "strong:振动周期",
+        "strong:劲度系数",
+        "kw:质量",
+        "kw:弹簧",
+        "kw:周期"
+      ],
+      "needs_llm": false
+    }
+  },
+  {
+    "id": "P13",
+    "source_line": 67,
+    "title": "13. 证明题（超范围）",
+    "body": "设 $A$ 为可逆矩阵，证明：$\\det(A^{-1}) = \\dfrac{1}{\\det(A)}$。",
+    "raw": "13. 证明题（超范围）\n设 $A$ 为可逆矩阵，证明：$\\det(A^{-1}) = \\dfrac{1}{\\det(A)}$。",
+    "sha256": "ca90b17961976ea2",
+    "domain": "linear_algebra",
+    "route": {
+      "method": "rule",
+      "score": 2.0,
+      "runner_up": "physics",
+      "margin": 1.0,
+      "hits": [
+        "kw:矩阵",
+        "kw:det"
+      ],
+      "needs_llm": false
+    }
+  }
+]

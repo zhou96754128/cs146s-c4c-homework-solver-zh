@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/xiaowo/.cogseed-dev/userWorkSpace/检查挑战清单完成情况/C4C/Zhouruoying_C4C_homework-solver/pipeline.py", line 142, in main
+    solve_stats = solve_mod.solve_all(
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/xiaowo/.cogseed-dev/userWorkSpace/检查挑战清单完成情况/C4C/Zhouruoying_C4C_homework-solver/scripts/solve.py", line 169, in solve_all
+    pt = back.get(int(p["id"]), "").strip()
+                  ^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: 'P01'

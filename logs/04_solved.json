@@ -1,0 +1,878 @@
+[
+  {
+    "id": "P01",
+    "source_line": 8,
+    "title": "1. 求解下列线性方程组",
+    "body": "求解下列三元线性方程组：\n\n\\begin{cases}\n3x + 2y - z = 4 \\\\\nx - y + 2z = 5 \\\\\n2x + 3y + z = 11\n\\end{cases}\n\n要求给出唯一解，并说明消元路径。",
+    "raw": "1. 求解下列线性方程组\n求解下列三元线性方程组：\n\n\\begin{cases}\n3x + 2y - z = 4 \\\\\nx - y + 2z = 5 \\\\\n2x + 3y + z = 11\n\\end{cases}\n\n要求给出唯一解，并说明消元路径。",
+    "subitems": [],
+    "sha256": "f3d0d02a2454f2e5",
+    "domain": "linear_algebra",
+    "route": {
+      "method": "rule",
+      "score": 3.0,
+      "runner_up": "physics",
+      "margin": 1.0,
+      "hits": [
+        "strong:线性方程组",
+        "kw:cases"
+      ],
+      "needs_llm": false
+    },
+    "solution": {
+      "kind": "linsolve",
+      "answer_latex": "x = 1,\\quad y = 2,\\quad z = 3",
+      "steps": [
+        "写成增广矩阵 $\\left[\\,A \\mid \\mathbf{b}\\,\\right]$ 并对左侧作初等行变换：",
+        "化为行阶梯形后消元，得到唯一解。",
+        "回代校验：将解代回每一个原方程，左端与右端残差均为 $0$。"
+      ],
+      "method": "高斯消元 / \\texttt{sympy.solve}",
+      "detail": {
+        "n_equations": 3,
+        "n_unknowns": 3
+      },
+      "checks": [
+        {
+          "kind": "substitute",
+          "eqs": [
+            "Eq(3*x + 2*y - z, 4)",
+            "Eq(x - y + 2*z, 5)",
+            "Eq(2*x + 3*y + z, 11)"
+          ],
+          "sol": {
+            "x": "1",
+            "y": "2",
+            "z": "3"
+          }
+        }
+      ]
+    },
+    "solver_module": "solvers_algebra",
+    "ai_explain": "通过消元法将方程组化为阶梯形，进而求得唯一解。",
+    "llm": {
+      "stage": "explain_only",
+      "decision": "adopt",
+      "explain_ok": true,
+      "meta": {
+        "model": "qwen3:8b",
+        "prompt_sha256": "28243366d2e9938df479ab430d29eac4182aa1a9e81d4ffdb3779caff8682ce7",
+        "prompt_chars": 1575,
+        "latency_s": 7.27,
+        "ok": true,
+        "raw_excerpt": "[{\"id\": \"P01\", \"point\": \"通过消元法将方程组化为阶梯形，进而求得唯一解。\"}, {\"id\": \"P02\", \"point\": \"通过求解特征方程得到特征值，再代入原矩阵求对应特征向量。\"}, {\"id\": \"P03\", \"point\": \"通过行变换化简矩阵，确定其秩并判断行向量组是否线性相关。\"}, {\"id\": \"P04\", \"point\": \"利用行列式展开或行变换计算三阶行列式的值。\"}, {\"id\": \"P05\", \"point\": \"利用点积公式和叉积公式分别计算，再通过点积是否为零判断垂直性。\"}, {\"id\": \"P06\", \"point\": \"识别为齐次线性微分方程，利用指数函数求通解。\"}, {\"id\": \"P07\", \"point\": \"求解特征方程得到特征根，结合初值条件求特解。\"}, {\"id\": \"P09\", \"point\": \"根据牛顿第二定律 F = ma 直接求加速度。\"}, {\"id\": \"P10\", \"point\": \"利用重力势能转化为动能，再通过速度公式核对动能。\"}, {\"id\": \"P11\", \"point\": \"分解初速度为水平和竖直分量，分别计算射程和最大高度。\"}, {\"id\": \"P12\", \"point\": \"根据简谐运动周期公式 T = 2π√(m/k) 计算周期。\"}]"
+      },
+      "batch": true
+    }
+  },
+  {
+    "id": "P02",
+    "source_line": 20,
+    "title": "2. 求矩阵的特征值与特征向量",
+    "body": "求矩阵 $A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}$ 的特征值与对应的特征向量。",
+    "raw": "2. 求矩阵的特征值与特征向量\n求矩阵 $A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}$ 的特征值与对应的特征向量。",
+    "subitems": [],
+    "sha256": "6af8aa2b64415faa",
+    "domain": "linear_algebra",
+    "route": {
+      "method": "rule",
+      "score": 7.0,
+      "runner_up": "physics",
+      "margin": 1.214,
+      "hits": [
+        "strong:特征值",
+        "strong:特征向量",
+        "kw:矩阵",
+        "kw:向量",
+        "kw:pmatrix"
+      ],
+      "needs_llm": false
+    },
+    "solution": {
+      "kind": "eigen",
+      "answer_latex": "\\lambda_{1}=2,\\quad \\lambda_{2}=5;\\quad \\text{对应特征向量见下}",
+      "answer_extra_latex": "\\lambda=2:\\ \\mathbf{v}=\\left[\\begin{matrix}- \\frac{1}{2} & 1\\end{matrix}\\right];\\quad \\lambda=5:\\ \\mathbf{v}=\\left[\\begin{matrix}1 & 1\\end{matrix}\\right]",
+      "steps": [
+        "解特征方程 $\\det(A-\\lambda I)=0$：",
+        "$\\lambda = 5$（代数重数 1），$\\lambda = 2$（代数重数 1）。",
+        "把 $\\lambda$ 代回 $(A-\\lambda I)\\mathbf{x}=0$，取基础解系即为特征向量。"
+      ],
+      "method": "特征方程 + 齐次方程组基础解系",
+      "detail": {
+        "n_eigenvalues": 2
+      },
+      "checks": [
+        {
+          "kind": "eigen_residual",
+          "matrix": "Matrix([[4, 1], [2, 3]])",
+          "pairs": [
+            [
+              "2",
+              "Matrix([[-1/2], [1]])"
+            ],
+            [
+              "5",
+              "Matrix([[1], [1]])"
+            ]
+          ]
+        }
+      ]
+    },
+    "solver_module": "solvers_algebra",
+    "ai_explain": "通过求解特征方程得到特征值，再代入原矩阵求对应特征向量。",
+    "llm": {
+      "stage": "explain_only",
+      "decision": "adopt",
+      "explain_ok": true,
+      "meta": {
+        "model": "qwen3:8b",
+        "prompt_sha256": "28243366d2e9938df479ab430d29eac4182aa1a9e81d4ffdb3779caff8682ce7",
+        "prompt_chars": 1575,
+        "latency_s": 7.27,
+        "ok": true,
+        "raw_excerpt": "[{\"id\": \"P01\", \"point\": \"通过消元法将方程组化为阶梯形，进而求得唯一解。\"}, {\"id\": \"P02\", \"point\": \"通过求解特征方程得到特征值，再代入原矩阵求对应特征向量。\"}, {\"id\": \"P03\", \"point\": \"通过行变换化简矩阵，确定其秩并判断行向量组是否线性相关。\"}, {\"id\": \"P04\", \"point\": \"利用行列式展开或行变换计算三阶行列式的值。\"}, {\"id\": \"P05\", \"point\": \"利用点积公式和叉积公式分别计算，再通过点积是否为零判断垂直性。\"}, {\"id\": \"P06\", \"point\": \"识别为齐次线性微分方程，利用指数函数求通解。\"}, {\"id\": \"P07\", \"point\": \"求解特征方程得到特征根，结合初值条件求特解。\"}, {\"id\": \"P09\", \"point\": \"根据牛顿第二定律 F = ma 直接求加速度。\"}, {\"id\": \"P10\", \"point\": \"利用重力势能转化为动能，再通过速度公式核对动能。\"}, {\"id\": \"P11\", \"point\": \"分解初速度为水平和竖直分量，分别计算射程和最大高度。\"}, {\"id\": \"P12\", \"point\": \"根据简谐运动周期公式 T = 2π√(m/k) 计算周期。\"}]"
+      },
+      "batch": true
+    }
+  },
+  {
+    "id": "P03",
+    "source_line": 24,
+    "title": "3. 求矩阵的秩",
+    "body": "求矩阵 $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 3 & 6 & 10 \\end{pmatrix}$ 的秩，并说明行向量组是否线性相关。",
+    "raw": "3. 求矩阵的秩\n求矩阵 $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 3 & 6 & 10 \\end{pmatrix}$ 的秩，并说明行向量组是否线性相关。",
+    "subitems": [],
+    "sha256": "7962a998f69834f3",
+    "domain": "linear_algebra",
+    "route": {
+      "method": "rule",
+      "score": 6.0,
+      "runner_up": "physics",
+      "margin": 1.0,
+      "hits": [
+        "strong:矩阵的秩",
+        "kw:矩阵",
+        "kw:向量",
+        "kw:秩",
+        "kw:pmatrix"
+      ],
+      "needs_llm": false
+    },
+    "solution": {
+      "kind": "rank",
+      "answer_latex": "r(A)=2",
+      "steps": [
+        "对 $A$ 作初等行变换化为行阶梯形：非零行数即为矩阵的秩。",
+        "行阶梯形中非零行共 $2$ 行，故 $r(A)=2$。",
+        "其中 $1$ 行被完全消去，说明行向量组线性相关。"
+      ],
+      "method": "初等行变换化行阶梯形",
+      "detail": {
+        "rank": 2,
+        "shape": [
+          3,
+          3
+        ]
+      },
+      "checks": [
+        {
+          "kind": "rank_alt",
+          "matrix": "Matrix([[1, 2, 3], [2, 4, 6], [3, 6, 10]])"
+        }
+      ]
+    },
+    "solver_module": "solvers_algebra",
+    "ai_explain": "通过行变换化简矩阵，确定其秩并判断行向量组是否线性相关。",
+    "llm": {
+      "stage": "explain_only",
+      "decision": "adopt",
+      "explain_ok": true,
+      "meta": {
+        "model": "qwen3:8b",
+        "prompt_sha256": "28243366d2e9938df479ab430d29eac4182aa1a9e81d4ffdb3779caff8682ce7",
+        "prompt_chars": 1575,
+        "latency_s": 7.27,
+        "ok": true,
+        "raw_excerpt": "[{\"id\": \"P01\", \"point\": \"通过消元法将方程组化为阶梯形，进而求得唯一解。\"}, {\"id\": \"P02\", \"point\": \"通过求解特征方程得到特征值，再代入原矩阵求对应特征向量。\"}, {\"id\": \"P03\", \"point\": \"通过行变换化简矩阵，确定其秩并判断行向量组是否线性相关。\"}, {\"id\": \"P04\", \"point\": \"利用行列式展开或行变换计算三阶行列式的值。\"}, {\"id\": \"P05\", \"point\": \"利用点积公式和叉积公式分别计算，再通过点积是否为零判断垂直性。\"}, {\"id\": \"P06\", \"point\": \"识别为齐次线性微分方程，利用指数函数求通解。\"}, {\"id\": \"P07\", \"point\": \"求解特征方程得到特征根，结合初值条件求特解。\"}, {\"id\": \"P09\", \"point\": \"根据牛顿第二定律 F = ma 直接求加速度。\"}, {\"id\": \"P10\", \"point\": \"利用重力势能转化为动能，再通过速度公式核对动能。\"}, {\"id\": \"P11\", \"point\": \"分解初速度为水平和竖直分量，分别计算射程和最大高度。\"}, {\"id\": \"P12\", \"point\": \"根据简谐运动周期公式 T = 2π√(m/k) 计算周期。\"}]"
+      },
+      "batch": true
+    }
+  },
+  {
+    "id": "P04",
+    "source_line": 28,
+    "title": "4. 计算行列式的值",
+    "body": "计算下列三阶行列式的值：$\\begin{vmatrix} 2 & 1 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 10 \\end{vmatrix}$。",
+    "raw": "4. 计算行列式的值\n计算下列三阶行列式的值：$\\begin{vmatrix} 2 & 1 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 10 \\end{vmatrix}$。",
+    "subitems": [],
+    "sha256": "c8e824f83b00cfa9",
+    "domain": "linear_algebra",
+    "route": {
+      "method": "rule",
+      "score": 3.0,
+      "runner_up": "physics",
+      "margin": 1.5,
+      "hits": [
+        "strong:行列式",
+        "kw:vmatrix"
+      ],
+      "needs_llm": false
+    },
+    "solution": {
+      "kind": "det",
+      "answer_latex": "\\det A=-3",
+      "steps": [
+        "$n=3$ 阶行列式，按第一行（或含零最多的行）展开降阶。",
+        "逐项计算代数余子式并代数求和。",
+        "结果见答案框（已通过两条独立算法复核）。"
+      ],
+      "method": "Laplace 展开 + 独立算法复核",
+      "detail": {
+        "n": 3
+      },
+      "checks": [
+        {
+          "kind": "det_alt",
+          "matrix": "Matrix([[2, 1, 3], [4, 5, 6], [7, 8, 10]])"
+        }
+      ]
+    },
+    "solver_module": "solvers_algebra",
+    "ai_explain": "利用行列式展开或行变换计算三阶行列式的值。",
+    "llm": {
+      "stage": "explain_only",
+      "decision": "adopt",
+      "explain_ok": true,
+      "meta": {
+        "model": "qwen3:8b",
+        "prompt_sha256": "28243366d2e9938df479ab430d29eac4182aa1a9e81d4ffdb3779caff8682ce7",
+        "prompt_chars": 1575,
+        "latency_s": 7.27,
+        "ok": true,
+        "raw_excerpt": "[{\"id\": \"P01\", \"point\": \"通过消元法将方程组化为阶梯形，进而求得唯一解。\"}, {\"id\": \"P02\", \"point\": \"通过求解特征方程得到特征值，再代入原矩阵求对应特征向量。\"}, {\"id\": \"P03\", \"point\": \"通过行变换化简矩阵，确定其秩并判断行向量组是否线性相关。\"}, {\"id\": \"P04\", \"point\": \"利用行列式展开或行变换计算三阶行列式的值。\"}, {\"id\": \"P05\", \"point\": \"利用点积公式和叉积公式分别计算，再通过点积是否为零判断垂直性。\"}, {\"id\": \"P06\", \"point\": \"识别为齐次线性微分方程，利用指数函数求通解。\"}, {\"id\": \"P07\", \"point\": \"求解特征方程得到特征根，结合初值条件求特解。\"}, {\"id\": \"P09\", \"point\": \"根据牛顿第二定律 F = ma 直接求加速度。\"}, {\"id\": \"P10\", \"point\": \"利用重力势能转化为动能，再通过速度公式核对动能。\"}, {\"id\": \"P11\", \"point\": \"分解初速度为水平和竖直分量，分别计算射程和最大高度。\"}, {\"id\": \"P12\", \"point\": \"根据简谐运动周期公式 T = 2π√(m/k) 计算周期。\"}]"
+      },
+      "batch": true
+    }
+  },
+  {
+    "id": "P05",
+    "source_line": 32,
+    "title": "5. 向量的点积与叉积",
+    "body": "已知向量 $\\vec{a}=(2,-1,3)$ 与 $\\vec{b}=(1,4,-2)$，求二者的点积与叉积，并判断这两个向量是否垂直。",
+    "raw": "5. 向量的点积与叉积\n已知向量 $\\vec{a}=(2,-1,3)$ 与 $\\vec{b}=(1,4,-2)$，求二者的点积与叉积，并判断这两个向量是否垂直。",
+    "subitems": [],
+    "sha256": "864b6758a89ad695",
+    "domain": "linear_algebra",
+    "route": {
+      "method": "rule",
+      "score": 4.0,
+      "runner_up": "physics",
+      "margin": 1.0,
+      "hits": [
+        "kw:向量",
+        "kw:点积",
+        "kw:叉积",
+        "kw:垂直"
+      ],
+      "needs_llm": false
+    },
+    "solution": {
+      "kind": "vector",
+      "answer_latex": "\\vec{u}\\cdot\\vec{v}=-8,\\quad \\vec{u}\\times\\vec{v}=\\left[\\begin{matrix}-10 & 7 & 9\\end{matrix}\\right],\\quad \\text{两向量不垂直}",
+      "steps": [
+        "点积：$\\vec{u}\\cdot\\vec{v}=\\sum_i u_i v_i$。",
+        "叉积：按三阶行列式展开 $\\vec{u}\\times\\vec{v}$。",
+        "垂直判定：$\\vec{u}\\cdot\\vec{v}\\neq 0 \\Rightarrow$ 不垂直。"
+      ],
+      "method": "分量式点积 / 叉积 + 正交判据",
+      "detail": {
+        "dim": 3,
+        "orthogonal": false
+      },
+      "checks": [
+        {
+          "kind": "vector_recheck",
+          "u": "Matrix([[2], [-1], [3]])",
+          "v": "Matrix([[1], [4], [-2]])",
+          "dot": "-8",
+          "name_u": "a",
+          "name_v": "b"
+        },
+        {
+          "kind": "cross_recheck",
+          "u": "Matrix([[2], [-1], [3]])",
+          "v": "Matrix([[1], [4], [-2]])",
+          "cross": "Matrix([[-10], [7], [9]])"
+        }
+      ]
+    },
+    "solver_module": "solvers_algebra",
+    "ai_explain": "利用点积公式和叉积公式分别计算，再通过点积是否为零判断垂直性。",
+    "llm": {
+      "stage": "explain_only",
+      "decision": "adopt",
+      "explain_ok": true,
+      "meta": {
+        "model": "qwen3:8b",
+        "prompt_sha256": "28243366d2e9938df479ab430d29eac4182aa1a9e81d4ffdb3779caff8682ce7",
+        "prompt_chars": 1575,
+        "latency_s": 7.27,
+        "ok": true,
+        "raw_excerpt": "[{\"id\": \"P01\", \"point\": \"通过消元法将方程组化为阶梯形，进而求得唯一解。\"}, {\"id\": \"P02\", \"point\": \"通过求解特征方程得到特征值，再代入原矩阵求对应特征向量。\"}, {\"id\": \"P03\", \"point\": \"通过行变换化简矩阵，确定其秩并判断行向量组是否线性相关。\"}, {\"id\": \"P04\", \"point\": \"利用行列式展开或行变换计算三阶行列式的值。\"}, {\"id\": \"P05\", \"point\": \"利用点积公式和叉积公式分别计算，再通过点积是否为零判断垂直性。\"}, {\"id\": \"P06\", \"point\": \"识别为齐次线性微分方程，利用指数函数求通解。\"}, {\"id\": \"P07\", \"point\": \"求解特征方程得到特征根，结合初值条件求特解。\"}, {\"id\": \"P09\", \"point\": \"根据牛顿第二定律 F = ma 直接求加速度。\"}, {\"id\": \"P10\", \"point\": \"利用重力势能转化为动能，再通过速度公式核对动能。\"}, {\"id\": \"P11\", \"point\": \"分解初速度为水平和竖直分量，分别计算射程和最大高度。\"}, {\"id\": \"P12\", \"point\": \"根据简谐运动周期公式 T = 2π√(m/k) 计算周期。\"}]"
+      },
+      "batch": true
+    }
+  },
+  {
+    "id": "P06",
+    "source_line": 36,
+    "title": "6. 求一阶微分方程的通解",
+    "body": "求微分方程 $y' - 2y = 0$ 的通解。",
+    "raw": "6. 求一阶微分方程的通解\n求微分方程 $y' - 2y = 0$ 的通解。",
+    "subitems": [],
+    "sha256": "db5e20a0d1fd3165",
+    "domain": "ode",
+    "route": {
+      "method": "rule",
+      "score": 5.0,
+      "runner_up": "physics",
+      "margin": 1.3,
+      "hits": [
+        "strong:微分方程",
+        "kw:通解",
+        "kw:微分",
+        "kw:y'"
+      ],
+      "needs_llm": false
+    },
+    "solution": {
+      "kind": "ode",
+      "answer_latex": "y{\\left(x \\right)} = C_{1} e^{2 x}",
+      "steps": [
+        "判定方程阶数与类型：一阶常微分方程。",
+        "分离变量后两端积分，得到含任意常数的通解。",
+        "回代：把解代入原方程，两端之差化简恒为 $0$（见核验栏）。"
+      ],
+      "method": "一阶常微分方程 —— \\texttt{sympy.dsolve}（分离变量 / 特征方程法）",
+      "detail": {
+        "order": 1,
+        "has_ics": false,
+        "n_constants": 1
+      },
+      "checks": [
+        {
+          "kind": "ode_residual",
+          "expr": "-2*y(x) + Derivative(y(x), x)",
+          "solution": "C1*exp(2*x)",
+          "func": "y(x)"
+        }
+      ]
+    },
+    "solver_module": "solvers_ode",
+    "ai_explain": "识别为齐次线性微分方程，利用指数函数求通解。",
+    "llm": {
+      "stage": "explain_only",
+      "decision": "adopt",
+      "explain_ok": true,
+      "meta": {
+        "model": "qwen3:8b",
+        "prompt_sha256": "28243366d2e9938df479ab430d29eac4182aa1a9e81d4ffdb3779caff8682ce7",
+        "prompt_chars": 1575,
+        "latency_s": 7.27,
+        "ok": true,
+        "raw_excerpt": "[{\"id\": \"P01\", \"point\": \"通过消元法将方程组化为阶梯形，进而求得唯一解。\"}, {\"id\": \"P02\", \"point\": \"通过求解特征方程得到特征值，再代入原矩阵求对应特征向量。\"}, {\"id\": \"P03\", \"point\": \"通过行变换化简矩阵，确定其秩并判断行向量组是否线性相关。\"}, {\"id\": \"P04\", \"point\": \"利用行列式展开或行变换计算三阶行列式的值。\"}, {\"id\": \"P05\", \"point\": \"利用点积公式和叉积公式分别计算，再通过点积是否为零判断垂直性。\"}, {\"id\": \"P06\", \"point\": \"识别为齐次线性微分方程，利用指数函数求通解。\"}, {\"id\": \"P07\", \"point\": \"求解特征方程得到特征根，结合初值条件求特解。\"}, {\"id\": \"P09\", \"point\": \"根据牛顿第二定律 F = ma 直接求加速度。\"}, {\"id\": \"P10\", \"point\": \"利用重力势能转化为动能，再通过速度公式核对动能。\"}, {\"id\": \"P11\", \"point\": \"分解初速度为水平和竖直分量，分别计算射程和最大高度。\"}, {\"id\": \"P12\", \"point\": \"根据简谐运动周期公式 T = 2π√(m/k) 计算周期。\"}]"
+      },
+      "batch": true
+    }
+  },
+  {
+    "id": "P07",
+    "source_line": 40,
+    "title": "7. 求二阶微分方程满足初值条件的特解",
+    "body": "求微分方程 $y'' - 5y' + 6y = 0,\\; y(0)=0,\\; y'(0)=1$ 的特解。",
+    "raw": "7. 求二阶微分方程满足初值条件的特解\n求微分方程 $y'' - 5y' + 6y = 0,\\; y(0)=0,\\; y'(0)=1$ 的特解。",
+    "subitems": [
+      {
+        "label": "0",
+        "text": "=0,\\; y'"
+      },
+      {
+        "label": "0",
+        "text": "=1$ 的特解。"
+      }
+    ],
+    "sha256": "4490583342172ede",
+    "domain": "ode",
+    "route": {
+      "method": "rule",
+      "score": 7.0,
+      "runner_up": "physics",
+      "margin": 1.214,
+      "hits": [
+        "strong:微分方程",
+        "strong:初值",
+        "kw:特解",
+        "kw:微分",
+        "kw:y'"
+      ],
+      "needs_llm": false
+    },
+    "solution": {
+      "kind": "ode",
+      "answer_latex": "y{\\left(x \\right)} = \\left(e^{x} - 1\\right) e^{2 x}",
+      "steps": [
+        "判定方程阶数与类型：二阶常微分方程。",
+        "写出特征方程并求特征根，按根的情形写通解。",
+        "代入初值条件定出常数，得到满足初值的特解。",
+        "回代：把解代入原方程，两端之差化简恒为 $0$（见核验栏）。"
+      ],
+      "method": "二阶常微分方程 —— \\texttt{sympy.dsolve}（分离变量 / 特征方程法）",
+      "detail": {
+        "order": 2,
+        "has_ics": true,
+        "n_constants": 0
+      },
+      "checks": [
+        {
+          "kind": "ode_residual",
+          "expr": "6*y(x) - 5*Derivative(y(x), x) + Derivative(y(x), (x, 2))",
+          "solution": "(exp(x) - 1)*exp(2*x)",
+          "func": "y(x)"
+        }
+      ]
+    },
+    "solver_module": "solvers_ode",
+    "ai_explain": "求解特征方程得到特征根，结合初值条件求特解。",
+    "llm": {
+      "stage": "explain_only",
+      "decision": "adopt",
+      "explain_ok": true,
+      "meta": {
+        "model": "qwen3:8b",
+        "prompt_sha256": "28243366d2e9938df479ab430d29eac4182aa1a9e81d4ffdb3779caff8682ce7",
+        "prompt_chars": 1575,
+        "latency_s": 7.27,
+        "ok": true,
+        "raw_excerpt": "[{\"id\": \"P01\", \"point\": \"通过消元法将方程组化为阶梯形，进而求得唯一解。\"}, {\"id\": \"P02\", \"point\": \"通过求解特征方程得到特征值，再代入原矩阵求对应特征向量。\"}, {\"id\": \"P03\", \"point\": \"通过行变换化简矩阵，确定其秩并判断行向量组是否线性相关。\"}, {\"id\": \"P04\", \"point\": \"利用行列式展开或行变换计算三阶行列式的值。\"}, {\"id\": \"P05\", \"point\": \"利用点积公式和叉积公式分别计算，再通过点积是否为零判断垂直性。\"}, {\"id\": \"P06\", \"point\": \"识别为齐次线性微分方程，利用指数函数求通解。\"}, {\"id\": \"P07\", \"point\": \"求解特征方程得到特征根，结合初值条件求特解。\"}, {\"id\": \"P09\", \"point\": \"根据牛顿第二定律 F = ma 直接求加速度。\"}, {\"id\": \"P10\", \"point\": \"利用重力势能转化为动能，再通过速度公式核对动能。\"}, {\"id\": \"P11\", \"point\": \"分解初速度为水平和竖直分量，分别计算射程和最大高度。\"}, {\"id\": \"P12\", \"point\": \"根据简谐运动周期公式 T = 2π√(m/k) 计算周期。\"}]"
+      },
+      "batch": true
+    }
+  },
+  {
+    "id": "P08",
+    "source_line": 44,
+    "title": "8. 匀变速直线运动",
+    "body": "一辆小车以初速度 v_0 = 10 m/s 出发，沿直线以加速度 a = 2 m/s^2 匀加速运动，\n运动时间 t = 5 s，求末速度与这段时间内的位移。",
+    "raw": "8. 匀变速直线运动\n一辆小车以初速度 v_0 = 10 m/s 出发，沿直线以加速度 a = 2 m/s^2 匀加速运动，\n运动时间 t = 5 s，求末速度与这段时间内的位移。",
+    "subitems": [],
+    "sha256": "f4cd9e2ad01e39f5",
+    "domain": "physics",
+    "route": {
+      "method": "rule",
+      "score": 3.0,
+      "runner_up": "ode",
+      "margin": 1.0,
+      "hits": [
+        "kw:加速度",
+        "kw:初速度",
+        "kw:m/s"
+      ],
+      "needs_llm": false
+    },
+    "solution": null,
+    "solver_module": null,
+    "llm": {
+      "stage": "normalize_fallback",
+      "decision": "reject",
+      "why": "模型规范化后仍无法确定性求解，标记为超出模板范围",
+      "raw_excerpt": "8. 匀变速直线运动  \n一辆小车以初速度 $ v_0 = 10 \\, \\text{m/s} $ 出发，沿直线以加速度 $ a = 2 \\, \\text{m/s}^2 $ 匀加速运动，运动时间 $ t = 5 \\, \\text{s} $，求末速度与这段时间内的位移。",
+      "meta": {
+        "model": "qwen3:8b",
+        "prompt_sha256": "da3fea8c9346c3f980dfdb162d0050f6ea9d126994c1505ccbf90d70fbaffa21",
+        "prompt_chars": 141,
+        "latency_s": 1.77,
+        "ok": true,
+        "raw_excerpt": "8. 匀变速直线运动  \n一辆小车以初速度 $ v_0 = 10 \\, \\text{m/s} $ 出发，沿直线以加速度 $ a = 2 \\, \\text{m/s}^2 $ 匀加速运动，运动时间 $ t = 5 \\, \\text{s} $，求末速度与这段时间内的位移。"
+      }
+    }
+  },
+  {
+    "id": "P09",
+    "source_line": 49,
+    "title": "9. 牛顿第二定律",
+    "body": "质量 m = 5 kg 的物体受到合外力 F = 20 N 的作用，求物体获得的加速度。",
+    "raw": "9. 牛顿第二定律\n质量 m = 5 kg 的物体受到合外力 F = 20 N 的作用，求物体获得的加速度。",
+    "subitems": [],
+    "sha256": "7ce54e98171badb7",
+    "domain": "physics",
+    "route": {
+      "method": "rule",
+      "score": 8.0,
+      "runner_up": "ode",
+      "margin": 1.0,
+      "hits": [
+        "strong:合外力",
+        "strong:牛顿第二定律",
+        "kw:加速度",
+        "kw:质量",
+        "kw:物体",
+        "kw:牛顿"
+      ],
+      "needs_llm": false
+    },
+    "solution": {
+      "kind": "newton2",
+      "answer_latex": "a=4\\,\\mathrm{m/s^2}",
+      "steps": [
+        "由牛顿第二定律 $F=ma$，得 $a=F/m$。",
+        "$a=20/5=4\\,\\mathrm{m/s^2}$。"
+      ],
+      "method": "牛顿第二定律 F = ma",
+      "detail": {
+        "m": 5.0,
+        "F": 20.0,
+        "a": 4.0
+      },
+      "checks": [
+        {
+          "kind": "two_route",
+          "quantity": "加速度 a",
+          "route_a": [
+            "a = F/m",
+            4.0
+          ],
+          "route_b": [
+            "a = F·(1/m)",
+            4.0
+          ],
+          "tol": 1e-12
+        },
+        {
+          "kind": "units",
+          "checks": [
+            [
+              "a",
+              "F/m",
+              "m/s^2"
+            ]
+          ]
+        }
+      ]
+    },
+    "solver_module": "solvers_physics",
+    "ai_explain": "根据牛顿第二定律 F = ma 直接求加速度。",
+    "llm": {
+      "stage": "explain_only",
+      "decision": "adopt",
+      "explain_ok": true,
+      "meta": {
+        "model": "qwen3:8b",
+        "prompt_sha256": "28243366d2e9938df479ab430d29eac4182aa1a9e81d4ffdb3779caff8682ce7",
+        "prompt_chars": 1575,
+        "latency_s": 7.27,
+        "ok": true,
+        "raw_excerpt": "[{\"id\": \"P01\", \"point\": \"通过消元法将方程组化为阶梯形，进而求得唯一解。\"}, {\"id\": \"P02\", \"point\": \"通过求解特征方程得到特征值，再代入原矩阵求对应特征向量。\"}, {\"id\": \"P03\", \"point\": \"通过行变换化简矩阵，确定其秩并判断行向量组是否线性相关。\"}, {\"id\": \"P04\", \"point\": \"利用行列式展开或行变换计算三阶行列式的值。\"}, {\"id\": \"P05\", \"point\": \"利用点积公式和叉积公式分别计算，再通过点积是否为零判断垂直性。\"}, {\"id\": \"P06\", \"point\": \"识别为齐次线性微分方程，利用指数函数求通解。\"}, {\"id\": \"P07\", \"point\": \"求解特征方程得到特征根，结合初值条件求特解。\"}, {\"id\": \"P09\", \"point\": \"根据牛顿第二定律 F = ma 直接求加速度。\"}, {\"id\": \"P10\", \"point\": \"利用重力势能转化为动能，再通过速度公式核对动能。\"}, {\"id\": \"P11\", \"point\": \"分解初速度为水平和竖直分量，分别计算射程和最大高度。\"}, {\"id\": \"P12\", \"point\": \"根据简谐运动周期公式 T = 2π√(m/k) 计算周期。\"}]"
+      },
+      "batch": true
+    }
+  },
+  {
+    "id": "P10",
+    "source_line": 53,
+    "title": "10. 动能定理",
+    "body": "质量 m = 3 kg 的物体从高 h = 10 m 处由静止落下，取 g = 9.8 m/s^2，\n求物体落地时的动能，并用落地速度独立换算一次以作核对。",
+    "raw": "10. 动能定理\n质量 m = 3 kg 的物体从高 h = 10 m 处由静止落下，取 g = 9.8 m/s^2，\n求物体落地时的动能，并用落地速度独立换算一次以作核对。",
+    "subitems": [],
+    "sha256": "550f84653a19a2c5",
+    "domain": "physics",
+    "route": {
+      "method": "rule",
+      "score": 8.0,
+      "runner_up": "ode",
+      "margin": 1.0,
+      "hits": [
+        "strong:落地速度",
+        "strong:动能定理",
+        "kw:质量",
+        "kw:物体",
+        "kw:动能",
+        "kw:m/s"
+      ],
+      "needs_llm": false
+    },
+    "solution": {
+      "kind": "work_energy",
+      "answer_latex": "E_k=294\\,\\mathrm{J}",
+      "steps": [
+        "由动能定理 $W_{\\text{合}}=\\Delta E_k$，重力做功全部转化为动能。",
+        "$E_k=mgh=3\\times9.8\\times10=294\\,\\mathrm{J}$。",
+        "等价校验：落地速度 $v=\\sqrt{2gh}=14\\,\\mathrm{m/s}$，$E_k=\\tfrac12 m v^2=294\\,\\mathrm{J}$，两路一致。"
+      ],
+      "method": "动能定理（重力的功 → 动能增量）",
+      "detail": {
+        "m": 3.0,
+        "h": 10.0,
+        "g": 9.8,
+        "Ek": 294.0,
+        "v": 14.0
+      },
+      "checks": [
+        {
+          "kind": "two_route",
+          "quantity": "落地动能 Ek",
+          "route_a": [
+            "Ek = mgh",
+            294.0
+          ],
+          "route_b": [
+            "Ek = 0.5·m·(2gh)",
+            294.0
+          ],
+          "tol": 1e-09
+        },
+        {
+          "kind": "units",
+          "checks": [
+            [
+              "Ek",
+              "m*g*h",
+              "J"
+            ]
+          ]
+        }
+      ]
+    },
+    "solver_module": "solvers_physics",
+    "ai_explain": "利用重力势能转化为动能，再通过速度公式核对动能。",
+    "llm": {
+      "stage": "explain_only",
+      "decision": "adopt",
+      "explain_ok": true,
+      "meta": {
+        "model": "qwen3:8b",
+        "prompt_sha256": "28243366d2e9938df479ab430d29eac4182aa1a9e81d4ffdb3779caff8682ce7",
+        "prompt_chars": 1575,
+        "latency_s": 7.27,
+        "ok": true,
+        "raw_excerpt": "[{\"id\": \"P01\", \"point\": \"通过消元法将方程组化为阶梯形，进而求得唯一解。\"}, {\"id\": \"P02\", \"point\": \"通过求解特征方程得到特征值，再代入原矩阵求对应特征向量。\"}, {\"id\": \"P03\", \"point\": \"通过行变换化简矩阵，确定其秩并判断行向量组是否线性相关。\"}, {\"id\": \"P04\", \"point\": \"利用行列式展开或行变换计算三阶行列式的值。\"}, {\"id\": \"P05\", \"point\": \"利用点积公式和叉积公式分别计算，再通过点积是否为零判断垂直性。\"}, {\"id\": \"P06\", \"point\": \"识别为齐次线性微分方程，利用指数函数求通解。\"}, {\"id\": \"P07\", \"point\": \"求解特征方程得到特征根，结合初值条件求特解。\"}, {\"id\": \"P09\", \"point\": \"根据牛顿第二定律 F = ma 直接求加速度。\"}, {\"id\": \"P10\", \"point\": \"利用重力势能转化为动能，再通过速度公式核对动能。\"}, {\"id\": \"P11\", \"point\": \"分解初速度为水平和竖直分量，分别计算射程和最大高度。\"}, {\"id\": \"P12\", \"point\": \"根据简谐运动周期公式 T = 2π√(m/k) 计算周期。\"}]"
+      },
+      "batch": true
+    }
+  },
+  {
+    "id": "P11",
+    "source_line": 58,
+    "title": "11. 抛体运动",
+    "body": "以初速度 v_0 = 25 m/s 斜向上抛出一小球，抛射角 \\theta = 37^\\circ，\n取 g = 9.8 m/s^2，求射程与最大高度。",
+    "raw": "11. 抛体运动\n以初速度 v_0 = 25 m/s 斜向上抛出一小球，抛射角 \\theta = 37^\\circ，\n取 g = 9.8 m/s^2，求射程与最大高度。",
+    "subitems": [],
+    "sha256": "e7ece13e41cd6a0b",
+    "domain": "physics",
+    "route": {
+      "method": "rule",
+      "score": 9.0,
+      "runner_up": "ode",
+      "margin": 1.0,
+      "hits": [
+        "strong:抛体",
+        "strong:抛射角",
+        "strong:射程",
+        "kw:初速度",
+        "kw:高度",
+        "kw:m/s"
+      ],
+      "needs_llm": false
+    },
+    "solution": {
+      "kind": "projectile",
+      "answer_latex": "R=61.305\\,\\mathrm{m},\\quad H=11.5491\\,\\mathrm{m}",
+      "steps": [
+        "水平、竖直分解：$v_{0x}=v_0\\cos\\theta$，$v_{0y}=v_0\\sin\\theta$。",
+        "飞行时间 $t=\\dfrac{2v_0\\sin\\theta}{g}=3.0705\\,\\mathrm{s}$。",
+        "射程 $R=v_0\\cos\\theta\\cdot t=61.305\\,\\mathrm{m}$。",
+        "最大高度 $H=\\dfrac{v_0^2\\sin^2\\theta}{2g}=11.5491\\,\\mathrm{m}$。"
+      ],
+      "method": "运动分解（水平匀速 + 竖直匀变速）",
+      "detail": {
+        "v0": 25.0,
+        "theta_deg": 37.0,
+        "g": 9.8,
+        "R": 61.30495509810707,
+        "H": 11.549149301387128
+      },
+      "checks": [
+        {
+          "kind": "two_route",
+          "quantity": "射程 R",
+          "route_a": [
+            "R = v0^2 sin(2θ)/g",
+            61.30495509810707
+          ],
+          "route_b": [
+            "R = v0 cosθ · (2v0 sinθ/g)",
+            61.30495509810706
+          ],
+          "tol": 1e-09
+        },
+        {
+          "kind": "units",
+          "checks": [
+            [
+              "R",
+              "v0^2/g",
+              "m"
+            ],
+            [
+              "H",
+              "v0^2/g",
+              "m"
+            ]
+          ]
+        }
+      ]
+    },
+    "solver_module": "solvers_physics",
+    "ai_explain": "分解初速度为水平和竖直分量，分别计算射程和最大高度。",
+    "llm": {
+      "stage": "explain_only",
+      "decision": "adopt",
+      "explain_ok": true,
+      "meta": {
+        "model": "qwen3:8b",
+        "prompt_sha256": "28243366d2e9938df479ab430d29eac4182aa1a9e81d4ffdb3779caff8682ce7",
+        "prompt_chars": 1575,
+        "latency_s": 7.27,
+        "ok": true,
+        "raw_excerpt": "[{\"id\": \"P01\", \"point\": \"通过消元法将方程组化为阶梯形，进而求得唯一解。\"}, {\"id\": \"P02\", \"point\": \"通过求解特征方程得到特征值，再代入原矩阵求对应特征向量。\"}, {\"id\": \"P03\", \"point\": \"通过行变换化简矩阵，确定其秩并判断行向量组是否线性相关。\"}, {\"id\": \"P04\", \"point\": \"利用行列式展开或行变换计算三阶行列式的值。\"}, {\"id\": \"P05\", \"point\": \"利用点积公式和叉积公式分别计算，再通过点积是否为零判断垂直性。\"}, {\"id\": \"P06\", \"point\": \"识别为齐次线性微分方程，利用指数函数求通解。\"}, {\"id\": \"P07\", \"point\": \"求解特征方程得到特征根，结合初值条件求特解。\"}, {\"id\": \"P09\", \"point\": \"根据牛顿第二定律 F = ma 直接求加速度。\"}, {\"id\": \"P10\", \"point\": \"利用重力势能转化为动能，再通过速度公式核对动能。\"}, {\"id\": \"P11\", \"point\": \"分解初速度为水平和竖直分量，分别计算射程和最大高度。\"}, {\"id\": \"P12\", \"point\": \"根据简谐运动周期公式 T = 2π√(m/k) 计算周期。\"}]"
+      },
+      "batch": true
+    }
+  },
+  {
+    "id": "P12",
+    "source_line": 63,
+    "title": "12. 简谐运动的周期",
+    "body": "弹簧振子的劲度系数 k = 100 N/m，振子质量 m = 0.25 kg，求该振子的振动周期。",
+    "raw": "12. 简谐运动的周期\n弹簧振子的劲度系数 k = 100 N/m，振子质量 m = 0.25 kg，求该振子的振动周期。",
+    "subitems": [],
+    "sha256": "17bb3058ac9ec570",
+    "domain": "physics",
+    "route": {
+      "method": "rule",
+      "score": 11.0,
+      "runner_up": "ode",
+      "margin": 1.136,
+      "hits": [
+        "strong:简谐",
+        "strong:弹簧振子",
+        "strong:振动周期",
+        "strong:劲度系数",
+        "kw:质量",
+        "kw:弹簧",
+        "kw:周期"
+      ],
+      "needs_llm": false
+    },
+    "solution": {
+      "kind": "shm",
+      "answer_latex": "T=0.3142\\,\\mathrm{s}",
+      "steps": [
+        "弹簧振子回复力 $F=-kx$，与 $F=ma$ 联立得 $\\ddot x+\\dfrac km x=0$，故 $\\omega=\\sqrt{k/m}$。",
+        "$\\omega=20\\,\\mathrm{rad/s}\\Rightarrow T=\\dfrac{2\\pi}{\\omega}=0.3142\\,\\mathrm{s}$。"
+      ],
+      "method": "简谐运动角频率（由运动方程推得）",
+      "detail": {
+        "k": 100.0,
+        "m": 0.25,
+        "omega": 20.0,
+        "T": 0.3141592653589793
+      },
+      "checks": [
+        {
+          "kind": "two_route",
+          "quantity": "周期 T",
+          "route_a": [
+            "T = 2π/ω, ω=sqrt(k/m)",
+            0.3141592653589793
+          ],
+          "route_b": [
+            "T = 2*pi*sqrt(m/k)",
+            0.3141592653589793
+          ],
+          "tol": 1e-09
+        },
+        {
+          "kind": "units",
+          "checks": [
+            [
+              "T",
+              "sqrt(m/k)",
+              "s"
+            ]
+          ]
+        }
+      ]
+    },
+    "solver_module": "solvers_physics",
+    "ai_explain": "根据简谐运动周期公式 T = 2π√(m/k) 计算周期。",
+    "llm": {
+      "stage": "explain_only",
+      "decision": "adopt",
+      "explain_ok": true,
+      "meta": {
+        "model": "qwen3:8b",
+        "prompt_sha256": "28243366d2e9938df479ab430d29eac4182aa1a9e81d4ffdb3779caff8682ce7",
+        "prompt_chars": 1575,
+        "latency_s": 7.27,
+        "ok": true,
+        "raw_excerpt": "[{\"id\": \"P01\", \"point\": \"通过消元法将方程组化为阶梯形，进而求得唯一解。\"}, {\"id\": \"P02\", \"point\": \"通过求解特征方程得到特征值，再代入原矩阵求对应特征向量。\"}, {\"id\": \"P03\", \"point\": \"通过行变换化简矩阵，确定其秩并判断行向量组是否线性相关。\"}, {\"id\": \"P04\", \"point\": \"利用行列式展开或行变换计算三阶行列式的值。\"}, {\"id\": \"P05\", \"point\": \"利用点积公式和叉积公式分别计算，再通过点积是否为零判断垂直性。\"}, {\"id\": \"P06\", \"point\": \"识别为齐次线性微分方程，利用指数函数求通解。\"}, {\"id\": \"P07\", \"point\": \"求解特征方程得到特征根，结合初值条件求特解。\"}, {\"id\": \"P09\", \"point\": \"根据牛顿第二定律 F = ma 直接求加速度。\"}, {\"id\": \"P10\", \"point\": \"利用重力势能转化为动能，再通过速度公式核对动能。\"}, {\"id\": \"P11\", \"point\": \"分解初速度为水平和竖直分量，分别计算射程和最大高度。\"}, {\"id\": \"P12\", \"point\": \"根据简谐运动周期公式 T = 2π√(m/k) 计算周期。\"}]"
+      },
+      "batch": true
+    },
+    "_explain_batch_meta": {
+      "model": "qwen3:8b",
+      "prompt_sha256": "28243366d2e9938df479ab430d29eac4182aa1a9e81d4ffdb3779caff8682ce7",
+      "prompt_chars": 1575,
+      "latency_s": 7.27,
+      "ok": true,
+      "raw_excerpt": "[{\"id\": \"P01\", \"point\": \"通过消元法将方程组化为阶梯形，进而求得唯一解。\"}, {\"id\": \"P02\", \"point\": \"通过求解特征方程得到特征值，再代入原矩阵求对应特征向量。\"}, {\"id\": \"P03\", \"point\": \"通过行变换化简矩阵，确定其秩并判断行向量组是否线性相关。\"}, {\"id\": \"P04\", \"point\": \"利用行列式展开或行变换计算三阶行列式的值。\"}, {\"id\": \"P05\", \"point\": \"利用点积公式和叉积公式分别计算，再通过点积是否为零判断垂直性。\"}, {\"id\": \"P06\", \"point\": \"识别为齐次线性微分方程，利用指数函数求通解。\"}, {\"id\": \"P07\", \"point\": \"求解特征方程得到特征根，结合初值条件求特解。\"}, {\"id\": \"P09\", \"point\": \"根据牛顿第二定律 F = ma 直接求加速度。\"}, {\"id\": \"P10\", \"point\": \"利用重力势能转化为动能，再通过速度公式核对动能。\"}, {\"id\": \"P11\", \"point\": \"分解初速度为水平和竖直分量，分别计算射程和最大高度。\"}, {\"id\": \"P12\", \"point\": \"根据简谐运动周期公式 T = 2π√(m/k) 计算周期。\"}]"
+    }
+  },
+  {
+    "id": "P13",
+    "source_line": 67,
+    "title": "13. 证明题（超范围）",
+    "body": "设 $A$ 为可逆矩阵，证明：$\\det(A^{-1}) = \\dfrac{1}{\\det(A)}$。",
+    "raw": "13. 证明题（超范围）\n设 $A$ 为可逆矩阵，证明：$\\det(A^{-1}) = \\dfrac{1}{\\det(A)}$。",
+    "subitems": [],
+    "sha256": "ca90b17961976ea2",
+    "domain": "linear_algebra",
+    "route": {
+      "method": "rule",
+      "score": 2.0,
+      "runner_up": "physics",
+      "margin": 1.0,
+      "hits": [
+        "kw:矩阵",
+        "kw:det"
+      ],
+      "needs_llm": false
+    },
+    "solution": null,
+    "solver_module": null,
+    "llm": {
+      "stage": "normalize_fallback",
+      "decision": "reject",
+      "why": "模型规范化后仍无法确定性求解，标记为超出模板范围",
+      "raw_excerpt": "13. 证明题（超范围）  \n设 $A$ 为可逆矩阵，证明：$\\det(A^{-1}) = \\dfrac{1}{\\det(A)}$。",
+      "meta": {
+        "model": "qwen3:8b",
+        "prompt_sha256": "80bba5efba18270adabe1f2f2951c58383938bc016e57b8b442f2ca0dfdfaa72",
+        "prompt_chars": 115,
+        "latency_s": 0.87,
+        "ok": true,
+        "raw_excerpt": "13. 证明题（超范围）  \n设 $A$ 为可逆矩阵，证明：$\\det(A^{-1}) = \\dfrac{1}{\\det(A)}$。"
+      }
+    }
+  }
+]

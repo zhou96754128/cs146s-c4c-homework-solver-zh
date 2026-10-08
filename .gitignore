@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+_smoke/
+_build/
+挑战ch-*/

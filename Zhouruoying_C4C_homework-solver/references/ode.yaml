@@ -1,0 +1,26 @@
+# 学科域：常微分方程
+#
+# 门控词表与 scripts/solvers_ode.py 的 GATE 保持同一口径，
+# 避免「域路由判为 ode、但求解器自己不接」的错位。
+domain: ode
+label: 常微分方程
+solvers: [solvers_ode]
+strong_keywords:
+  - 微分方程
+  - 常微分
+  - 求通解
+  - 求特解
+  - 初值
+  - dy/dx
+keywords:
+  - 通解
+  - 特解
+  - 微分
+  - 导数
+  - "y'"
+  - ode
+negative_keywords:
+  - 特征值
+  - 行列式
+  - 弹簧振子
+  - 重力加速度

@@ -1,0 +1,322 @@
+{
+  "input": "/Users/xiaowo/.cogseed-dev/userWorkSpace/检查挑战清单完成情况/C4C/Zhouruoying_C4C_作业原件.md",
+  "input_sha256": "f4d5a80043b6ff0c921a191a1fe7da280522e7b9fe8ec783b13d690e3b0e5d28",
+  "course": "线性代数与大学物理",
+  "student": "Zhouruoying",
+  "n_problems": 13,
+  "n_solved": 11,
+  "n_verified": 11,
+  "n_failed_verify": 0,
+  "domains": [
+    "linear_algebra",
+    "ode",
+    "physics"
+  ],
+  "llm": {
+    "enabled": true,
+    "host": "http://127.0.0.1:11434",
+    "model": "qwen3:8b",
+    "models": [
+      "qwen3:8b"
+    ]
+  },
+  "llm_used_problems": [
+    {
+      "id": "P01",
+      "stage": "explain_only",
+      "decision": "adopt"
+    },
+    {
+      "id": "P02",
+      "stage": "explain_only",
+      "decision": "adopt"
+    },
+    {
+      "id": "P03",
+      "stage": "explain_only",
+      "decision": "adopt"
+    },
+    {
+      "id": "P04",
+      "stage": "explain_only",
+      "decision": "adopt"
+    },
+    {
+      "id": "P05",
+      "stage": "explain_only",
+      "decision": "adopt"
+    },
+    {
+      "id": "P06",
+      "stage": "explain_only",
+      "decision": "adopt"
+    },
+    {
+      "id": "P07",
+      "stage": "explain_only",
+      "decision": "adopt"
+    },
+    {
+      "id": "P08",
+      "stage": "normalize_fallback",
+      "decision": "reject"
+    },
+    {
+      "id": "P09",
+      "stage": "explain_only",
+      "decision": "adopt"
+    },
+    {
+      "id": "P10",
+      "stage": "explain_only",
+      "decision": "adopt"
+    },
+    {
+      "id": "P11",
+      "stage": "explain_only",
+      "decision": "adopt"
+    },
+    {
+      "id": "P12",
+      "stage": "explain_only",
+      "decision": "adopt"
+    },
+    {
+      "id": "P13",
+      "stage": "normalize_fallback",
+      "decision": "reject"
+    }
+  ],
+  "explained": 11,
+  "verify": {
+    "passed": 11,
+    "failed": 0,
+    "unsolved": 2,
+    "checks_total": 18,
+    "checks_passed": 16,
+    "problems": [
+      {
+        "id": "P01",
+        "domain": "linear_algebra",
+        "solver": "solvers_algebra",
+        "verified": true,
+        "checks": [
+          {
+            "check": "substitute",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "P02",
+        "domain": "linear_algebra",
+        "solver": "solvers_algebra",
+        "verified": true,
+        "checks": [
+          {
+            "check": "eigen_residual",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "P03",
+        "domain": "linear_algebra",
+        "solver": "solvers_algebra",
+        "verified": true,
+        "checks": [
+          {
+            "check": "rank_alt",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "P04",
+        "domain": "linear_algebra",
+        "solver": "solvers_algebra",
+        "verified": true,
+        "checks": [
+          {
+            "check": "det_alt",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "P05",
+        "domain": "linear_algebra",
+        "solver": "solvers_algebra",
+        "verified": true,
+        "checks": [
+          {
+            "check": "vector_recheck",
+            "status": "PASS"
+          },
+          {
+            "check": "cross_recheck",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "P06",
+        "domain": "ode",
+        "solver": "solvers_ode",
+        "verified": true,
+        "checks": [
+          {
+            "check": "ode_residual",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "P07",
+        "domain": "ode",
+        "solver": "solvers_ode",
+        "verified": true,
+        "checks": [
+          {
+            "check": "ode_residual",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "P08",
+        "domain": "physics",
+        "solver": null,
+        "verified": false,
+        "checks": [
+          {
+            "check": "-",
+            "status": "SKIP"
+          }
+        ]
+      },
+      {
+        "id": "P09",
+        "domain": "physics",
+        "solver": "solvers_physics",
+        "verified": true,
+        "checks": [
+          {
+            "check": "two_route",
+            "status": "PASS"
+          },
+          {
+            "check": "units",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "P10",
+        "domain": "physics",
+        "solver": "solvers_physics",
+        "verified": true,
+        "checks": [
+          {
+            "check": "two_route",
+            "status": "PASS"
+          },
+          {
+            "check": "units",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "P11",
+        "domain": "physics",
+        "solver": "solvers_physics",
+        "verified": true,
+        "checks": [
+          {
+            "check": "two_route",
+            "status": "PASS"
+          },
+          {
+            "check": "units",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "P12",
+        "domain": "physics",
+        "solver": "solvers_physics",
+        "verified": true,
+        "checks": [
+          {
+            "check": "two_route",
+            "status": "PASS"
+          },
+          {
+            "check": "units",
+            "status": "PASS"
+          }
+        ]
+      },
+      {
+        "id": "P13",
+        "domain": "linear_algebra",
+        "solver": null,
+        "verified": false,
+        "checks": [
+          {
+            "check": "-",
+            "status": "SKIP"
+          }
+        ]
+      }
+    ]
+  },
+  "tex": "/Users/xiaowo/.cogseed-dev/userWorkSpace/检查挑战清单完成情况/C4C/output/Zhouruoying_C4C_作业解答.tex",
+  "md": "/Users/xiaowo/.cogseed-dev/userWorkSpace/检查挑战清单完成情况/C4C/output/Zhouruoying_C4C_作业解答.md",
+  "pdf": "/Users/xiaowo/.cogseed-dev/userWorkSpace/检查挑战清单完成情况/C4C/output/Zhouruoying_C4C_作业解答.pdf",
+  "compile": {
+    "ok": true,
+    "rc": 0,
+    "engine": "tectonic (private)",
+    "elapsed_s": 5.0,
+    "pdf": "/Users/xiaowo/.cogseed-dev/userWorkSpace/检查挑战清单完成情况/C4C/output/Zhouruoying_C4C_作业解答.pdf",
+    "pdf_bytes": 103093,
+    "log": "/Users/xiaowo/.cogseed-dev/userWorkSpace/检查挑战清单完成情况/C4C/output/Zhouruoying_C4C_作业解答.compile.log",
+    "tail": "(badness 4013) in paragraph at lines 218--218\nwarning: Zhouruoying_C4C_作业解答.tex:219: Overfull \\hbox (4.19363pt too wide) in paragraph at lines 219--219\nwarning: Zhouruoying_C4C_作业解答.tex:220: Overfull \\hbox (4.19363pt too wide) in paragraph at lines 220--220\nwarning: Zhouruoying_C4C_作业解答.tex:220: Overfull \\hbox (35.48314pt too wide) in paragraph at lines 220--220\nwarning: Zhouruoying_C4C_作业解答.tex:221: Overfull \\hbox (4.19363pt too wide) in paragraph at lines 221--221\nwarning: Zhouruoying_C4C_作业解答.tex:222: Overfull \\hbox (3.66364pt too wide) in paragraph at lines 222--222\nwarning: Zhouruoying_C4C_作业解答.tex:223: Overfull \\hbox (4.19363pt too wide) in paragraph at lines 223--223\nwarning: Zhouruoying_C4C_作业解答.tex:224: Overfull \\hbox (4.19363pt too wide) in paragraph at lines 224--224\nwarning: Zhouruoying_C4C_作业解答.tex:225: Overfull \\hbox (2.20364pt too wide) in paragraph at lines 225--225\nwarning: Zhouruoying_C4C_作业解答.tex:227: Overfull \\hbox (2.20364pt too wide) in paragraph at lines 227--227\nwarning: Zhouruoying_C4C_作业解答.tex:228: Overfull \\hbox (2.20364pt too wide) in paragraph at lines 228--228\nwarning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.\n"
+  },
+  "elapsed_sec": 15.12,
+  "deps": {
+    "python": "3.12.13",
+    "required": {
+      "sympy>=1.12": {
+        "ok": true,
+        "version": "1.14.0"
+      },
+      "pyyaml>=6.0": {
+        "ok": true,
+        "version": "6.0.3"
+      }
+    },
+    "optional": {
+      "numpy": {
+        "ok": true,
+        "version": "2.5.3"
+      },
+      "pdfplumber>=0.9": {
+        "ok": false
+      },
+      "python-docx>=0.8": {
+        "ok": true,
+        "version": "1.2.0"
+      }
+    },
+    "missing_required": [],
+    "latex": {
+      "available": true,
+      "engine": "tectonic",
+      "path": "/Users/xiaowo/.cogseed-dev/userWorkSpace/检查挑战清单完成情况/_tools/tectonic/tectonic"
+    }
+  }
+}

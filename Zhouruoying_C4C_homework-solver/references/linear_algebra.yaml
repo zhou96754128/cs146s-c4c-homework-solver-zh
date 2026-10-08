@@ -1,0 +1,42 @@
+# 学科域：线性代数
+#
+# classify.load_domains() 读入本目录下所有 *.yaml；_score() 只认三类键：
+#   strong_keywords(+2.0) / keywords(+1.0) / negative_keywords(-1.5)
+# 关键词按正则匹配（re.search，忽略大小写），不要写裸括号等元字符。
+# 「新增学科只需加一个 yaml，不改代码」——本文件即该可迁移性的实证。
+domain: linear_algebra
+label: 线性代数
+solvers: [solvers_algebra]
+strong_keywords:
+  - 特征值
+  - 特征向量
+  - 行列式
+  - 线性方程组
+  - 矩阵的秩
+  - 求秩
+keywords:
+  - 矩阵
+  - 向量
+  - 点积
+  - 内积
+  - 叉积
+  - 外积
+  - 正交
+  - 垂直
+  - 转置
+  - 秩
+  - cases
+  - pmatrix
+  - bmatrix
+  - vmatrix
+  - det
+  - rank
+  - cross
+  - dot
+negative_keywords:
+  - 微分方程
+  - 常微分
+  - 自由落体
+  - 加速度
+  - 弹簧振子
+  - 简谐

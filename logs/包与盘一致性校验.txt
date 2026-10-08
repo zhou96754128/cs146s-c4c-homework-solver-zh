@@ -1,0 +1,29 @@
+包与盘一致性校验 —— Zhouruoying_C4C_homework-solver.skill
+包 sha256: a0ac57f6735a6268d548ecc48b8fa86045524c3a7a35f375c512b3ed0625ec74
+包大小  : 46526 字节
+
+[OK]      README.md  ab9f0a6aef2dd2d7
+[OK]      SKILL.md  42201aedbe9def44
+[OK]      examples/sample_homework.md  310fc3cd253f372d
+[OK]      pipeline.py  87de657ad94ca68c
+[OK]      references/linear_algebra.yaml  8cadb2ed4c3fb862
+[OK]      references/ode.yaml  13417d32bd52ce0b
+[OK]      references/physics.yaml  bfbadf78c16ac98c
+[OK]      scripts/bootstrap.py  ecce5e1b67a14027
+[OK]      scripts/classify.py  5f2327e5f7695e4f
+[OK]      scripts/compile_pdf.py  b6f78e7eeb905f09
+[OK]      scripts/ingest.py  e23462455dde9e05
+[OK]      scripts/llm_adapter.py  371b6ab2731ce99c
+[OK]      scripts/mathparse.py  6f4aa93f2144ad1b
+[OK]      scripts/parse_problems.py  bcf5a05e730cafa0
+[OK]      scripts/render_latex.py  d33179c319665b57
+[OK]      scripts/solve.py  ec85f5652d13fb5d
+[OK]      scripts/solvers_algebra.py  e15e4afa8d072a4f
+[OK]      scripts/solvers_ode.py  8122e1716eec2e24
+[OK]      scripts/solvers_physics.py  21d60226d9a7830c
+[OK]      scripts/verify.py  61462876a9f62ebe
+
+比对文件数: 20
+一致      : 20
+不一致    : 0
+PACKAGE_OK=True
