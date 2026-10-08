@@ -50,7 +50,7 @@ python3 Zhouruoying_C4C_homework-solver/pipeline.py \
 |---|---|
 | `Zhouruoying_C4C_homework-solver/` | 技能源码（`pipeline.py` + `scripts/` 13 个模块 + `references/` 3 份题型模板） |
 | `Zhouruoying_C4C_homework-solver.skill` | 打包好的技能包（ZIP；20 文件） |
-| `Zhouruoying_C4C_*.md` | 方案设计 / 作业原件 / 验证报告 / 教学说明 / AI日志 / 拿来说明 / 项目自评 |
+| `Zhouruoying_C4C_*.md` | 方案设计 / 作业原件 / 验证报告 / 教学说明 / AI日志 / 拿来说明 / 项目自评 / AAR（复盘） |
 | `Zhouruoying_C4C_output.pdf` | 作业解答 PDF |
 | `output/` | 解答 Markdown / LaTeX 源 / 7 份阶段日志 |
 | `logs/` | 包与盘一致性校验 |
